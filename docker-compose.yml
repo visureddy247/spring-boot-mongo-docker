@@ -5,15 +5,15 @@ services:
     image: visureddy247/spring-boot-mongo:version
     environment:
     - MONGO_DB_HOSTNAME=mongo
-   ports:
+    ports:
       - 8080:8080
     networks:
     - reddy  
    
-   mongo:
+  mongo:
     image: mongo
     volumes:
-      - visudb:/data/db
+    - visudb:/data/db
     networks:
     - reddy
     
