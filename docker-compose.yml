@@ -1,5 +1,4 @@
-version: "1.0"
-
+version: "3"
 services:
   springboot:
     image: visureddy247/spring-boot-mongo
