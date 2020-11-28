@@ -1,7 +1,7 @@
 version: "3"
 services:
   springboot:
-    image: visureddy247/spring-boot-mongo
+    image: visureddy247/spring-boot-mongo:VERSION
     environment:
     - MONGO_DB_HOSTNAME=mongo
     ports:
