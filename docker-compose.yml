@@ -20,5 +20,5 @@ services:
 volumes:
   visudb:
 networks:
-  reddyk:
+  reddy:
   
