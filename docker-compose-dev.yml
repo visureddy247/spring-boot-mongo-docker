@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  springboot:
+    environment:
+    - MONGO_DB_USERNAME=visudb
+    - MONGO_DB_PASSWORD=visu123
+  mongo:
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=visudb
+    - MONGO_INITDB_ROOT_PASSWORD=visu123
