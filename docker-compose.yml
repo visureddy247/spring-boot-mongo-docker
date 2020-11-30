@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   springboot:
-    image: dockerhandson/spring-boot-mongo:VERSION
+    image: visureddy247/spring-boot-mongo:VERSION
     restart: always
     environment:
     - MONGO_DB_HOSTNAME=mongo
