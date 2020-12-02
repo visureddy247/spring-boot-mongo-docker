@@ -3,7 +3,7 @@ version: '3'
 
 services:
   springboot:
-    image: visureddy247/spring-boot-mongo:latest
+    image: visureddy247/spring-boot-mongo:VERSION
     restart: always # This will be ignored if we deploy in docker swarm
     environment:
     - MONGO_DB_HOSTNAME=mongo
