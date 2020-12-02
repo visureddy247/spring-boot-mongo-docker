@@ -1,14 +1,22 @@
-version: "3"
+
+version: '3'
+
 services:
   springboot:
-    image: visureddy247/spring-boot-mongo:VERSION
+    image: visureddy247/spring-boot-mongo:latest
+    restart: always # This will be ignored if we deploy in docker swarm
     environment:
     - MONGO_DB_HOSTNAME=mongo
+    - MONGO_DB_USERNAME=devdb
+    - MONGO_DB_PASSWORD=devdb123
     ports:
-    - 8080:8080
+      - 8080:8080
+    working_dir: /opt/app
+    depends_on:
+      - mongo
     networks:
-    - reddy  
-      deploy:  # This will be considered only in docker swarm.
+    - springappnetwork
+    deploy:  # This will be considered only in docker swarm.
       replicas: 2
       update_config:
         parallelism: 1
@@ -17,16 +25,21 @@ services:
         condition: on-failure
         delay: 10s
         max_attempts: 5
-   
+
   mongo:
     image: mongo
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=devdb
+    - MONGO_INITDB_ROOT_PASSWORD=devdb123
     volumes:
-    - visudb:/data/db
+      - mongodb:/data/db
+    restart: always
     networks:
-    - reddy
-    
+    - springappnetwork
+
 volumes:
-  visudb:
+  mongodb:
+
+
 networks:
-  reddy:
-  
+  springappnetwork:
