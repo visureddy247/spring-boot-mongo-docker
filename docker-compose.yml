@@ -43,5 +43,6 @@ volumes:
     
 networks:
   springappnetwork:
+  external: true
   
 
