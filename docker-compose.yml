@@ -32,6 +32,8 @@ services:
     - MONGO_INITDB_ROOT_PASSWORD=devdb123
     volumes:
       - mongodb:/data/db
+    networks:
+    - springappnetwork
     restart: always
  
     
